@@ -10,8 +10,7 @@ help:
 	@echo "  build   - build docker image"
 
 setup:
-	pip install --no-cache-dir uv
-	uv pip install --system fastapi uvicorn ruff pytest httpx
+	uv sync
 
 lint:
 	ruff check .
