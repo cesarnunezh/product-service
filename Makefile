@@ -17,7 +17,7 @@ lint:
 	docker run --rm products-api:test ruff check .
 
 test:
-	docker run --rm products-api:test pytest
+	docker run --rm products-api:test uv run -m pytest
 
 scan:
 	@echo "No security scanner configured yet for product-service"
