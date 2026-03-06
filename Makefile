@@ -5,6 +5,7 @@ help:
 	@echo "  setup   - install dependencies"
 	@echo "  lint    - run ruff"
 	@echo "  test    - run pytest"
+	@echo "  scan    - run security scan placeholder"
 	@echo "  run     - run uvicorn"
 	@echo "  build   - build docker image"
 
@@ -18,8 +19,11 @@ lint:
 test:
 	pytest
 
+scan:
+	@echo "No security scanner configured yet for product-service"
+
 run:
 	uvicorn src.main:app --reload
 
 build:
-	docker build -t product-product-service:local .
+	docker build -t products-api:ci-local .

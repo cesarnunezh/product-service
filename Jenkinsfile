@@ -1,20 +1,14 @@
-pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps { checkout scm }
-    }
-    stage('Setup') {
-      steps { sh 'make setup' }
-    }
-    stage('Lint') {
-      steps { sh 'make lint' }
-    }
-    stage('Test') {
-      steps { sh 'make test' }
-    }
-    stage('Docker Build') {
-      steps { sh 'make build' }
-    }
-  }
-}
+@Library('devops-shared-lib@main') _
+
+ciPipeline(
+  serviceName: 'products-api',
+  enableDeploy: false,
+  dockerRepo: 'cesarnunezh/products-api',
+  localImageName: 'products-api:ci-local',
+  imageBuildCmd: 'make build',
+  buildCmd: 'make setup',
+  lintCmd: 'make lint',
+  testCmd: 'make test',
+  securityCmd: 'make scan',
+  deployRepo: 'https://github.com/cesarnunezh/DevOpsProject.git'
+)
