@@ -10,7 +10,7 @@ help:
 	@echo "  build   - build docker image"
 
 setup:
-	docker build --target test -t products-api:test
+	docker build --target test -t products-api:test .
 
 lint:
 	docker run --rm products-api:test ruff format --check .
