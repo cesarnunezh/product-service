@@ -2,7 +2,7 @@
 
 ciPipeline(
   serviceName: 'products-api',
-  enableDeploy: false,
+  enableDeploy: true,
   dockerRepo: 'cesarnunezh/products-api',
   localImageName: 'products-api:ci-local',
   imageBuildCmd: 'make build',
