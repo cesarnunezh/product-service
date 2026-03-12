@@ -44,7 +44,7 @@ class ProductOut(BaseModel):
 
 @app.get("/health")
 async def health() -> dict:
-    return {"status": "ok"}
+    return {"status": "ok"} 
 
 
 @app.get("/products", response_model=list[ProductOut])
